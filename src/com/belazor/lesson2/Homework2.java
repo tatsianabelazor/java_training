@@ -4,6 +4,8 @@ import com.belazor.lesson2.award.Award;
 import com.belazor.lesson2.nominator.Nominator;
 import com.belazor.lesson2.nominee.Nominee;
 
+import java.util.ArrayList;
+
 public class Homework2 {
 
 
@@ -26,6 +28,11 @@ public class Homework2 {
 
         myNominator.nominate(myNominee, myNominee1, myAward1);
         myNominator.nominate(myNominee, myNominee1, myAward2);
+
+        ArrayList nomineesName = new ArrayList<>();
+        nomineesName.add("John");
+        nomineesName.add("Pete");
+        nomineesName.add("Ben");
     }
 
 
