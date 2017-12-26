@@ -5,6 +5,7 @@ import com.belazor.lesson2.nominator.Nominator;
 import com.belazor.lesson2.nominee.Nominee;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Homework2 {
 
@@ -14,6 +15,7 @@ public class Homework2 {
         Award myAward1 = new Award(5);
         Award myAward2 = new Award("EUR", 10);
         Award myAward3 = new Award("EUR", 15);
+        Award awardWithSoli = new Award (20, 1000);
         Nominee myNominee = new Nominee("Boss");
         Nominee myNominee1 = new Nominee("John");
 
@@ -26,13 +28,18 @@ public class Homework2 {
         Nominator myNominator = new Nominator("Manager");
 
 
-        myNominator.nominate(myNominee, myNominee1, myAward1);
-        myNominator.nominate(myNominee, myNominee1, myAward2);
+        myNominator.nominate(myNominee, awardWithSoli);
+        myNominator.nominate(myNominee, myAward2);
 
-        ArrayList nomineesName = new ArrayList<>();
-        nomineesName.add("John");
-        nomineesName.add("Pete");
-        nomineesName.add("Ben");
+        List<Nominee> nomineesName = new ArrayList<>();
+        nomineesName.add(new Nominee("John"));
+        nomineesName.add(new Nominee("Pete"));
+        nomineesName.add(new Nominee("Ben"));
+
+        myNominator.nominate(nomineesName, myAward1);
+
+
+
     }
 
 

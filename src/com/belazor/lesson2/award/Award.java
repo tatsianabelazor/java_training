@@ -12,12 +12,11 @@ public class Award {
 
 
     private final int value;
-    private String currency;
+    private String currency = "USD";
     private double soli;
 
     public Award(int value) {
         this.value = value;
-        this.currency = "USD";
     }
 
     public Award(String currency, int value) {
