@@ -15,7 +15,16 @@ public class Nominee {
     }
 
     public Integer receiveAward(Award myAward) {
+
+        if (myAward.getSoli() >= 0){
+            double result = myAward.getSoli() * myAward.getValue();
+            System.out.println(String.format("Award with soli = %s", result, myAward.getSoli()));
+            System.out.println("Award is decreased in " + (result/myAward.getValue()* 100) + "%");
+        } else {
+            System.out.println(String.format("Award without soli + %d", myAward.getValue()));
+        }
         return myAward.getValue();
+
     }
 
 }
