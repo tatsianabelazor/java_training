@@ -18,6 +18,8 @@ public class Homework2 {
         Award awardWithSoli = new Award (20, 1000);
         Nominee myNominee = new Nominee("Boss");
         Nominee myNominee1 = new Nominee("John");
+        Nominator myNominator1 = new Nominator("Adam",3, 200);
+        Nominee myNominee2 = new Nominee("Jack", 2, 100);
 
         System.out.println(String.format("Recipient of the award is %s", myNominee.getName()));
         System.out.println(String.format("Recipient of the award is %s", myNominee1.getName()));
@@ -37,6 +39,14 @@ public class Homework2 {
         nomineesName.add(new Nominee("Ben"));
 
         myNominator.nominate(nomineesName, myAward1);
+
+       /* System.out.println("Awards with soli");
+        double first = myNominee.calculation(myAward1);
+        double second = myNominee.calculation(myAward2);
+        double third = myNominee.calculation(awardWithSoli);
+        System.out.println(first);
+        */
+
 
 
     }
