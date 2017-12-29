@@ -12,7 +12,7 @@ public class Homework2 {
 
     public static void main(String[] args) {
 
-        Award myAward1 = new Award(5);
+        Award myAward1 = new Award(25);
         Award myAward2 = new Award("EUR", 10);
         Award myAward3 = new Award("EUR", 15);
         Award awardWithSoli = new Award (20, 1000);
@@ -37,7 +37,6 @@ public class Homework2 {
         nomineesName.add(new Nominee("Ben"));
 
         myNominator.nominate(nomineesName, myAward1);
-
 
 
     }
