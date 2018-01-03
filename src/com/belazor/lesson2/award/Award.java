@@ -13,7 +13,7 @@ public class Award {
 
     private final int value;
     private String currency = "USD";
-    private double soli;
+    private float soli;
 
     public Award(int value) {
         this.value = value;
@@ -25,7 +25,7 @@ public class Award {
         System.out.println(String.format("constructor initialisation %d %s", this.value, this.currency));
     }
 
-    public Award(double soli, int value) {
+    public Award(float soli, int value) {
         this.soli = soli;
         this.value = value;
     }
@@ -34,7 +34,7 @@ public class Award {
         return soli;
     }
 
-    public void setSoli(double soli) {
+    public void setSoli(float soli) {
         this.soli = soli;
     }
 

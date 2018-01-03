@@ -38,7 +38,7 @@ public class Nominee {
         this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
     }
 
-    public void setNomineeAwardAmountLimit(double nomineeAwardAmountLimit) {
+    public void setNomineeAwardAmountLimit(float nomineeAwardAmountLimit) {
         this.nomineeAwardAmountLimit = nomineeAwardAmountLimit;
     }
 
