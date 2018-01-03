@@ -47,6 +47,11 @@ public class Homework2 {
         System.out.println(first);
         */
 
+        myNominator1.nominateTillNomineeAwardQuantityLimit(myNominee2, myAward2);
+        myNominator1.nominateTillNominatorAwardQuantityLimit(myNominee2, myAward2);
+        myNominator1.nominateTillNominatorAwardAmountLimit(myNominee2, myAward2);
+        myNominator1.nominateTillNomineeAwardAmountLimit(myNominee2, myAward2);
+
 
 
     }

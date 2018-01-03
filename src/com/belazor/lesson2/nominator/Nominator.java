@@ -62,16 +62,16 @@ public class Nominator {
 
             if (i < nominee.getNomineeAwardQuantityLimit()) {
                 nominee.receiveAward(award);
-                System.out.println(name + " gives award " + i + " to " + nominee.getName());
+                System.out.println(String.format("%s gives %s award to %s", name, i, nominee.getName()));
 
             } else if (i == nominee.getNomineeAwardQuantityLimit()) {
                 nominee.receiveAward(award);
-                System.out.println(name + " gives award " + i + " to " + nominee.getName());
+                System.out.println(String.format("%s gives %s award to %s", name, i, nominee.getName()));
 
             } else {
-                System.out.println("Award quantity limit " + nominee.getNomineeAwardQuantityLimit() + " is reached for recipient " + nominee.getName() + " for awards quantity");
+                System.out.println(String.format("Award quantity limit %s", nominee.getNomineeAwardQuantityLimit()));
 
-                System.out.println("Total number of received awards is " + nominee.getNomineeAwardQuantityLimit());
+                System.out.println(String.format("Number of received awards is %s", nominee.getNomineeAwardQuantityLimit()));
             }
         }
     }
@@ -83,12 +83,11 @@ public class Nominator {
         do {
             nominee.receiveAward(award);
             count++;
-            System.out.println(name + " gives award " + nominationsCount + " to " + nominee.getName());
+            System.out.println(String.format("%s gives %s EUR to %s. Without restrictions", name, award.getValue(), nominee.getName()));
             nominationsCount++;
         } while (nominationsCount <= getNominatorAwardQuantityLimit());
 
-        System.out.println("Award quantity limit " + getNominatorAwardQuantityLimit() + " is reached for nominator " + name + " for quantity of awards");
-        System.out.println("Total number of given awards is " + count);
+        System.out.println(String.format("Total number of given awards is %s", count));
     }
 
 
@@ -99,13 +98,12 @@ public class Nominator {
             totalAwardAmountForNominator += award.getValue();
             nominee.receiveAward(award);
             count++;
-            System.out.println(name + " gives award for " + award.getValue() + " to " + nominee.getName());
+            System.out.println(String.format("%s gives %s EUR to %s. Without restrictions", name, award.getValue(), nominee.getName()));
         }
-        System.out.println("Award amount limit " + getNominatorAwardAmountLimit() + " is reached for nominator " + name + " for total amount of awards");
-        System.out.println("Total number of given awards is " + count);
+        System.out.println(String.format("Total number of given awards is %s", count));
     }
 
-    public void nominateTillNomineeAwardAmountLimit1(Nominee nominee, Award award) {
+    public void nominateTillNomineeAwardAmountLimit(Nominee nominee, Award award) {
         int totalAwardAmountForNominee = 0;
         int count = 0;
         while (totalAwardAmountForNominee + award.getValue() <= nominee.getNomineeAwardAmountLimit()) {
@@ -113,50 +111,20 @@ public class Nominator {
                 totalAwardAmountForNominee += award.getValue();
                 nominee.receiveAward(award);
                 count++;
-                System.out.println(name + " gives award for " + award.getValue() + " to " + nominee.getName() + ". No restrictions");
+                System.out.println(String.format("%s gives %s EUR to %s. Without restrictions", name, award.getValue(), nominee.getName()));
             }
             if (totalAwardAmountForNominee + award.getValue() == nominee.getNomineeAwardAmountLimit()) {
                 totalAwardAmountForNominee += award.getValue();
                 nominee.receiveAward(award);
                 count++;
-                System.out.println(name + " gives award for " + award.getValue() + " to " + nominee.getName() + ". This is last award before restriction");
+                System.out.println(String.format("%s gives %s EUR to %s. Restrictions", name, award.getValue(), nominee.getName()));
             }
         }
-        System.out.println("Award amount limit " + nominee.getNomineeAwardAmountLimit() + " is reached for nominee " + name + " for total amount of awards");
-        System.out.println("Total number of given awards is " + count);
+        System.out.println(String.format("Award amount limit is %s", nominee.getNomineeAwardAmountLimit()));
+        System.out.println(String.format("Total number of given awards is %s", count));
 
 
     }
-
-    public void nominateTillNomineeAwardAmountLimit(Nominee nominee, Award award) {
-        Integer totalAwardAmountForNominee = 0;
-        Double currentAwardAmount = (double) (totalAwardAmountForNominee + award.getValue());
-        Double amountLimit = nominee.getNomineeAwardAmountLimit();
-        int comparison = currentAwardAmount.compareTo(amountLimit);
-
-        while (currentAwardAmount <= nominee.getNomineeAwardAmountLimit()) {
-            switch (comparison) {
-                case -1:
-                    System.out.println("Give award");
-                    currentAwardAmount += award.getValue();
-                    break;
-                case 0:
-                    System.out.println("Last award");
-                    currentAwardAmount += award.getValue();
-                    break;
-                case 1:
-                    System.out.println("No award");
-                    break;
-                default:
-                    System.out.println("Nothing");
-
-            }
-        }
-        System.out.println("Total amount of given awards is " + currentAwardAmount);
-
-
-    }
-
 
 }
 
