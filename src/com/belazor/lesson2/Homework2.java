@@ -40,12 +40,6 @@ public class Homework2 {
 
         myNominator.nominate(nomineesName, myAward1);
 
-       /* System.out.println("Awards with soli");
-        double first = myNominee.calculation(myAward1);
-        double second = myNominee.calculation(myAward2);
-        double third = myNominee.calculation(awardWithSoli);
-        System.out.println(first);
-        */
 
         myNominator1.nominateTillNomineeAwardQuantityLimit(myNominee2, myAward2);
         myNominator1.nominateTillNominatorAwardQuantityLimit(myNominee2, myAward2);
