@@ -135,7 +135,7 @@ public class Nominator {
                 nomineeAwardAmount += award.getValue();
                 nominee.receiveAward(award);
                 с++;
-                System.out.println(String.format("%s gives %s EUR to %s. Restrictions", name, award.getValue(), nominee.getName()));
+                System.out.println(String.format("%s gives %s EUR to %s.", name, award.getValue(), nominee.getName()));
             }
         }
         System.out.println(String.format("Award amount limit is %s", nominee.getNomineeAwardAmountLimit()));
