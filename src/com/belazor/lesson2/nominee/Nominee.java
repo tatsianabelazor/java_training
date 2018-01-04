@@ -56,23 +56,26 @@ public class Nominee {
 
     }
 
-    public double calculation(Award award) {
+    public double calculation(Award myAward) {
+        int population = 5;
+        return calculation(myAward, population);
+    }
+
+    public double calculation(Award award, int population) {
         System.out.println("Award before calculation " +  award.getValue());
         final Random random = new Random ();
         double c = random.nextDouble();
         //System.out.println("c=" + c);
-        int population = 5;
         int z = random.nextInt();
         //System.out.println("z=" + z);
         double p = award.getValue();
 
         double a = ((((Math.pow(z,2))*(p)*(1-p)))/(Math.pow(c,2)));
-       // System.out.println("Formula");
+        // System.out.println("Formula");
         double calculation = a/(1+((a-1)/population));
         //System.out.println("Award after calculation " + calculation);
         return calculation;
     }
-
 }
 
 

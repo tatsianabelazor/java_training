@@ -40,31 +40,31 @@ public class Homework2 {
 
         myNominator.nominate(nomineesName, myAward1);
 
-        myNominee.calculation(myAward1);
-        myNominee1.calculation(myAward1);
-        myNominee2.calculation(myAward1);
+        //myNominee.calculation(myAward1);
+        //myNominee1.calculation(myAward1);
+        //myNominee2.calculation(myAward1);
 
 
-        double nominee1 = myNominee.calculation(myAward1);
-        System.out.println(String.format("First quantity is %s", nominee1));
+        double nominee1CalcRes1 = myNominee.calculation(myAward1);
+        System.out.println(String.format("First quantity is %s", nominee1CalcRes1));
 
-        double nominee2 = myNominee1.calculation(myAward2);
-        System.out.println(String.format("Second quantity is %s", nominee2));
+        double nominee2CalcRes2 = myNominee1.calculation(myAward2);
+        System.out.println(String.format("Second quantity is %s", nominee2CalcRes2));
 
-        double nominee3 = myNominee2.calculation(myAward3);
-        System.out.println(String.format("Third quantity is %s", nominee3));
+        double nominee3CalcRes3 = myNominee2.calculation(myAward3);
+        System.out.println(String.format("Third quantity is %s", nominee3CalcRes3));
 
 
-        if (nominee1 < nominee2) {
-            System.out.println(String.format("%s award is smaller than %s award", myNominee.getName(), myNominee1.getName()));
+        if (nominee1CalcRes1 < nominee2CalcRes2) {
+            System.out.println(String.format("%s's award is smaller than %s's award", myNominee.getName(), myNominee1.getName()));
         }
-        if (nominee1 >= nominee2) {
+        if (nominee1CalcRes1 >= nominee2CalcRes2) {
             System.out.println(String.format("%s award is bigger or equal to %s award", myNominee.getName(), myNominee1.getName()));
         }
-        if (nominee1 != nominee2) {
+        if (nominee1CalcRes1 != nominee2CalcRes2) {
             System.out.println(String.format("%s award is not equal to %s award", myNominee.getName(), myNominee1.getName()));
         }
-        if (nominee1 < nominee2 && nominee1 < nominee3) {
+        if (nominee1CalcRes1 < nominee2CalcRes2 && nominee1CalcRes1 < nominee3CalcRes3) {
             System.out.println(String.format("%s award is the smallest", myNominee.getName()));
         }
 
