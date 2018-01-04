@@ -70,7 +70,7 @@ public class Nominator {
         do {
             nominee.receiveAward(award);
             a++;
-            System.out.println(String.format("%s gives %s EUR to %s. Without restrictions", name, award.getValue(), nominee.getName()));
+            System.out.println(String.format("%s gives %s award to %s.", name, award.getValue(), nominee.getName()));
             nominationCounts++;
         } while (nominationCounts <= getNominatorAwardQuantityLimit());
 
@@ -88,7 +88,7 @@ public class Nominator {
             nominatorAwardAmount += award.getValue();
             nominee.receiveAward(award);
             b++;
-            System.out.println(String.format("%s gives %s EUR to %s. Without restrictions", name, award.getValue(), nominee.getName()));
+            System.out.println(String.format("%s gives %s EUR to %s.", name, award.getValue(), nominee.getName()));
         }
         System.out.println(String.format("Total number of given awards is %s", b));
     }
@@ -129,7 +129,7 @@ public class Nominator {
                 nomineeAwardAmount += award.getValue();
                 nominee.receiveAward(award);
                 с++;
-                System.out.println(String.format("%s gives %s EUR to %s. Without restrictions", name, award.getValue(), nominee.getName()));
+                System.out.println(String.format("%s gives %s EUR to %s.", name, award.getValue(), nominee.getName()));
             }
             if (nomineeAwardAmount + award.getValue() == nominee.getNomineeAwardAmountLimit()) {
                 nomineeAwardAmount += award.getValue();
