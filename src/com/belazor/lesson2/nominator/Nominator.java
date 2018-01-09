@@ -115,8 +115,7 @@ public class Nominator {
         while (nomineeAwardAmount + award.getValue() <= nominee.getNomineeAwardAmountLimit()) {
             nominee.receiveAward(award);
             с++;
-            System.out.println(String.format("Award amount limit is %s", nominee.getNomineeAwardAmountLimit()));
-            System.out.println(String.format("Total number of given awards is %s", с));
+           System.out.println(String.format("Total number of given awards is %s", с));
 
         }
     }
