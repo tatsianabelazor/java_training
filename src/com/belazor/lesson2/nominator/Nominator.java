@@ -78,7 +78,7 @@ public class Nominator {
     }
 
     /*
-    3.2 Nominator дает авадру Nominee пока не достигнет nominatorAwardAmountLimit
+    3.2 Nominator дает авадру Nominee пока не достигнет nominatorAwardAmountLimit test
      */
 
     public void nominateTillNominatorAwardAmountLimit(Nominee nominee, Award award) {
