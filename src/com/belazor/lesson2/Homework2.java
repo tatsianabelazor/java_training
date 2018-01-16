@@ -15,16 +15,16 @@ public class Homework2 {
         Award myAward1 = new Award(10);
         Award myAward2 = new Award("EUR", 25);
         Award myAward3 = new Award("EUR", 35);
-        Award awardWithSoli = new Award(20, 1000);
+        Award awardWithSoli = new Award(20, 10);
         Nominee myNominee = new Nominee("Boss");
         Nominee myNominee1 = new Nominee("John");
         Nominator myNominator1 = new Nominator("Adam", 3, 200);
-        Nominee myNominee2 = new Nominee("Jack", 2, 100);
+        Nominee myNominee2 = new Nominee("Jack");
 
-        System.out.println(String.format("Recipient of the award is %s", myNominee.getName()));
-        System.out.println(String.format("Recipient of the award is %s", myNominee1.getName()));
-        System.out.println(String.format("The amount of the award 1 = %d %s", myAward1.getValue(), myAward1.getCurrency()));
-        System.out.println(String.format("The amount of the award 2 = %d %s", myAward2.getValue(), myAward2.getCurrency()));
+        //System.out.println(String.format("Recipient of the award is %s", myNominee.getName()));
+        //System.out.println(String.format("Recipient of the award is %s", myNominee1.getName()));
+        //System.out.println(String.format("The amount of the award 1 = %d %s", myAward1.getValue(), myAward1.getCurrency()));
+       // System.out.println(String.format("The amount of the award 2 = %d %s", myAward2.getValue(), myAward2.getCurrency()));
 
 
         Nominator myNominator = new Nominator("Manager");
@@ -67,12 +67,6 @@ public class Homework2 {
         if (nominee1CalcRes1 < nominee2CalcRes2 && nominee1CalcRes1 < nominee3CalcRes3) {
             System.out.println(String.format("%s award is the smallest", myNominee.getName()));
         }
-
-
-        myNominator1.nominateTillNominatorAwardQuantityLimit(myNominee2, myAward2);
-        myNominator1.nominateTillNominatorAwardAmountLimit(myNominee2, myAward2);
-        myNominator1.nominateTillNomineeAwardQuantityLimit(myNominee2, myAward2);
-        myNominator1.nominateTillNomineeAwardAmountLimit(myNominee2, myAward2);
 
 
     }

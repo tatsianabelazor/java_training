@@ -6,73 +6,87 @@ import java.util.Random;
 
 public class Nominee {
 
-    private String Name;
+    private String name;
+
+    /**
+     * @return
+     */
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    private int nomineeAwardQuantityLimit;
+    private int AwardQuantityLimit;
 
-    private double nomineeAwardAmountLimit;
+    private double AwardAmountLimit;
 
+    /**
+     * @param name
+     */
     public Nominee(String name) {
-        Name = name;
+        this.name = name;
     }
 
-    public Nominee(String name, int nomineeAwardQuantityLimit, double nomineeAwardAmountLimit) {
-        Name = name;
-        this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
-        this.nomineeAwardAmountLimit = nomineeAwardAmountLimit;
+    public int getAwardQuantityLimit() {
+        return AwardQuantityLimit;
     }
 
-    public int getNomineeAwardQuantityLimit() {
-        return nomineeAwardQuantityLimit;
+    public double getAwardAmountLimit() {
+        return AwardAmountLimit;
     }
 
-    public double getNomineeAwardAmountLimit() {
-        return nomineeAwardAmountLimit;
+    public void setAwardQuantityLimit(int awardQuantityLimit) {
+        this.AwardQuantityLimit = awardQuantityLimit;
     }
 
-    public void setNomineeAwardQuantityLimit(int nomineeAwardQuantityLimit) {
-        this.nomineeAwardQuantityLimit = nomineeAwardQuantityLimit;
+    public void setAwardAmountLimit(float awardAmountLimit) {
+        this.AwardAmountLimit = awardAmountLimit;
     }
 
-    public void setNomineeAwardAmountLimit(float nomineeAwardAmountLimit) {
-        this.nomineeAwardAmountLimit = nomineeAwardAmountLimit;
-    }
-
+    /**
+     * @param myAward
+     * @return
+     */
     public double receiveAward(Award myAward) {
         double result = myAward.getValue();
         if (myAward.getSoli() > 0) {
             result = myAward.getSoli() * myAward.getValue();
-            System.out.println(String.format("Award with soli = %s", result, myAward.getSoli()));
-            System.out.println("Award is decreased in " + (result/myAward.getValue()* 100) + "%");
+            //System.out.println(String.format("Award with soli = %s", result, myAward.getSoli()));
+            //System.out.println("Award is decreased in " + (result / myAward.getValue() * 100) + "%");
         } else {
             result = calculation(myAward);
-            System.out.println(String.format("Award without soli + %s", result));
+            //System.out.println(String.format("Award without soli + %s", result));
         }
         return result;
 
     }
 
+    /**
+     * @param myAward award object
+     * @return
+     */
     public double calculation(Award myAward) {
         int population = 5;
         return calculation(myAward, population);
     }
 
+    /**
+     * @param award
+     * @param population
+     * @return
+     */
     public double calculation(Award award, int population) {
-        System.out.println("Award before calculation " +  award.getValue());
-        final Random random = new Random ();
+        //System.out.println("Award before calculation " + award.getValue());
+        final Random random = new Random();
         double c = random.nextDouble();
         //System.out.println("c=" + c);
         int z = random.nextInt();
         //System.out.println("z=" + z);
         double p = award.getValue();
 
-        double a = ((((Math.pow(z,2))*(p)*(1-p)))/(Math.pow(c,2)));
+        double a = ((((Math.pow(z, 2)) * (p) * (1 - p))) / (Math.pow(c, 2)));
         // System.out.println("Formula");
-        double calculation = a/(1+((a-1)/population));
+        double calculation = a / (1 + ((a - 1) / population));
         //System.out.println("Award after calculation " + calculation);
         return calculation;
     }
