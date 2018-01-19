@@ -9,6 +9,9 @@ import com.belazor.lesson2.nominee.Nominee;
  */
 public class LimitsCheck {
 
+    /**
+     * Create constants
+     */
     private static final int NOMINATOR_AWARD_QUANTITY_LIMIT_CONSTANT = 1;
     private static final int NOMINATOR_AWARD_AMOUNT_LIMIT_CONSTANT = 2;
     private static final int NOMINEE_AWARD_QUANTITY_LIMIT_CONSTANT = 3;
