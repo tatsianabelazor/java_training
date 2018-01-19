@@ -1,4 +1,4 @@
-package com.belazor.lesson2;
+package com.belazor.lesson2.utils;
 
 /**
  * Created by Tatsiana_Belazor on 15-Jan-18.

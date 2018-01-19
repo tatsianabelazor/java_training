@@ -3,13 +3,14 @@ package com.belazor.lesson2;
 import com.belazor.lesson2.award.Award;
 import com.belazor.lesson2.nominator.Nominator;
 import com.belazor.lesson2.nominee.Nominee;
+import com.belazor.lesson2.utils.LimitsCheck;
 
 /**
  * Created by Tatsiana_Belazor on 10-Jan-18.
  */
 
 
-public class Limits {
+public class HomeworkLimits {
 
     public static void main(String args[]) {
 
@@ -30,10 +31,11 @@ public class Limits {
         System.out.println(String.format("The award is %s", limitAward.getValue()));
 
         awardLimitCheck.nominateTillNominatorAwardQuantityLimit(limitNominee, limitNominator, limitAward);
-        awardLimitCheck.nominateTillNominatorAwardQuantityLimit(limitNominee, limitNominator, limitAward);
+        awardLimitCheck.nominateTillNominatorAwardAmountLimit(limitNominee, limitNominator, limitAward);
         awardLimitCheck.nominateTillNomineeAwardQuantityLimit(limitNominee, limitNominator, limitAward);
         awardLimitCheck.nominateTillNomineeAwardAmountLimit(limitNominee, limitNominator, limitAward);
     }
+
 }
 
 
