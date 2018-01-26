@@ -3,10 +3,12 @@ package com.belazor.lesson2;
 import com.belazor.lesson2.award.Award;
 import com.belazor.lesson2.nominator.Nominator;
 import com.belazor.lesson2.nominee.Nominee;
+import com.belazor.lesson2.utils.NominationHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 public class Homework2Extra {
 
@@ -31,29 +33,17 @@ public class Homework2Extra {
         nominator.nominate(nominee1, nominee1Awards);
         nominator.nominate(nominee2, nominee2Awards);
 
-        int nominee1Population = calcPopulation(nominee1Awards);
+        int nominee1Population = NominationHelper.calcPopulation(nominee1Awards);
         System.out.println("nominee1Population=" + nominee1Population);
-        double nominee1CalcRes1 = nominee1.calculation(myAward3, nominee1Population);
+        double nominee1CalcRes1 = NominationHelper.calculation(myAward3, nominee1Population);
 
         System.out.println(String.format("First quantity is %s", nominee1CalcRes1));
 
-        int nominee2Population = calcPopulation(nominee2Awards);
+        int nominee2Population = NominationHelper.calcPopulation(nominee2Awards);
         System.out.println("nominee2Population=" + nominee2Population);
-        double nominee2CalcRes2 = nominee2.calculation(myAward3, nominee2Population);
+        double nominee2CalcRes2 = NominationHelper.calculation(myAward3, nominee2Population);
         System.out.println(String.format("Second quantity is %s", nominee2CalcRes2));
 
-
-    }
-
-
-    private static int calcPopulation(List<Award> awards){
-        int countWithoutSoli = 0;
-        for (Award a: awards) {
-            if (a.getSoli() == 0) {
-                countWithoutSoli++;
-            }
-        }
-        return countWithoutSoli;
 
     }
 
