@@ -1,29 +1,19 @@
 package com.belazor.lesson2.nominee;
 
 import com.belazor.lesson2.award.Award;
+import com.belazor.lesson2.person.Person;
 import com.belazor.lesson2.utils.NominationHelper;
 
-public class Nominee {
-
-    private String name;
-
-    /**
-     * @return
-     */
-
-    public String getName() {
-        return name;
-    }
+public class Nominee extends Person {
 
     private int AwardQuantityLimit;
-
     private double AwardAmountLimit;
 
     /**
-     * @param name
+     * @param name Nominee name
      */
     public Nominee(String name) {
-        this.name = name;
+        super (name);
     }
 
     public int getAwardQuantityLimit() {
@@ -34,10 +24,18 @@ public class Nominee {
         return AwardAmountLimit;
     }
 
+    /**
+     *
+     * @param awardQuantityLimit
+     */
     public void setAwardQuantityLimit(int awardQuantityLimit) {
         this.AwardQuantityLimit = awardQuantityLimit;
     }
 
+    /**
+     *
+     * @param awardAmountLimit
+     */
     public void setAwardAmountLimit(float awardAmountLimit) {
         this.AwardAmountLimit = awardAmountLimit;
     }
@@ -58,10 +56,13 @@ public class Nominee {
             //System.out.println(String.format("Award without soli + %s", result));
         }
         return result;
-
     }
 
-
+    @Override
+    public void displayWhoIAm() {
+        super.displayWhoIAm();
+        System.out.println("I am a nominee");
+    }
 }
 
 

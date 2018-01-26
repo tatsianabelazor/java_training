@@ -3,28 +3,22 @@ package com.belazor.lesson2.nominator;
 
 import com.belazor.lesson2.award.Award;
 import com.belazor.lesson2.nominee.Nominee;
+import com.belazor.lesson2.person.Person;
 
 import java.util.List;
 
 
-public class Nominator {
-
-    private String name;
-
-    public String getName() {
-        return name;
-    }
+public class Nominator extends Person {
 
     private int AwardQuantityLimit;
-
     private double AwardAmountLimit;
 
     public Nominator(String name) {
-        this.name = name;
+        super(name);
     }
 
     public Nominator(String name, int AwardQuantityLimit, float AwardAmountLimit) {
-        this.name = name;
+        this(name);
         this.AwardQuantityLimit = AwardQuantityLimit;
         this.AwardAmountLimit = AwardAmountLimit;
     }
@@ -55,14 +49,20 @@ public class Nominator {
             nominee.receiveAward(testAward);
             System.out.println(String.format("The recipient %s received %d %s award", nominee.getName(), testAward.getValue(), testAward.getCurrency()));
         }
-
     }
 
     public void nominate(Nominee nominee, List<Award> givenAwards) {
         for (Award award : givenAwards) {
             nominee.receiveAward(award);
         }
-
     }
 
+    /**
+     * This method is used to display nominator's name
+     */
+    @Override
+    public void displayWhoIAm(){
+        super.displayWhoIAm();
+        System.out.println("I am a nominator");
+    }
 }
