@@ -45,7 +45,7 @@ public class Homework2 {
         //myNominee2.calculation(myAward1);
 
 
-        double nominee1CalcRes1 = myNominee.calculation(myAward1);
+        /*double nominee1CalcRes1 = myNominee.calculation(myAward1);
         System.out.println(String.format("First quantity is %s", nominee1CalcRes1));
 
         double nominee2CalcRes2 = myNominee1.calculation(myAward2);
@@ -66,7 +66,7 @@ public class Homework2 {
         }
         if (nominee1CalcRes1 < nominee2CalcRes2 && nominee1CalcRes1 < nominee3CalcRes3) {
             System.out.println(String.format("%s award is the smallest", myNominee.getName()));
-        }
+        }*/
 
 
     }

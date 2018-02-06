@@ -18,7 +18,7 @@ public class HomeworkLimits {
 
         Nominator limitNominator = new Nominator("Jack");
         limitNominator.setAwardQuantityLimit(10);
-        limitNominator.setAwardAmountLimit(500);
+        limitNominator.setAwardamountlimit(500);
 
         Nominee limitNominee = new Nominee("John");
         limitNominee.setAwardQuantityLimit(5);

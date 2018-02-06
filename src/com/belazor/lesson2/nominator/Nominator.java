@@ -10,8 +10,8 @@ import java.util.List;
 
 public class Nominator extends Person {
 
-    private int AwardQuantityLimit;
-    private double AwardAmountLimit;
+    private int awardQuantityLimit;
+    private double awardAmountlimit;
 
     public Nominator(String name) {
         super(name);
@@ -19,24 +19,24 @@ public class Nominator extends Person {
 
     public Nominator(String name, int AwardQuantityLimit, float AwardAmountLimit) {
         this(name);
-        this.AwardQuantityLimit = AwardQuantityLimit;
-        this.AwardAmountLimit = AwardAmountLimit;
+        this.awardQuantityLimit = AwardQuantityLimit;
+        this.awardAmountlimit = AwardAmountLimit;
     }
 
     public int getAwardQuantityLimit() {
-        return AwardQuantityLimit;
+        return awardQuantityLimit;
     }
 
-    public double getAwardAmountLimit() {
-        return AwardAmountLimit;
+    public double getAwardamountlimit() {
+        return awardAmountlimit;
     }
 
     public void setAwardQuantityLimit(int awardQuantityLimit) {
-        this.AwardQuantityLimit = awardQuantityLimit;
+        this.awardQuantityLimit = awardQuantityLimit;
     }
 
-    public void setAwardAmountLimit(float awardAmountLimit) {
-        this.AwardAmountLimit = awardAmountLimit;
+    public void setAwardamountlimit(float awardamountlimit) {
+        this.awardAmountlimit = awardamountlimit;
     }
 
     public void nominate(Nominee nominee, Award testAward) {
@@ -61,8 +61,27 @@ public class Nominator extends Person {
      * This method is used to display nominator's name
      */
     @Override
-    public void displayWhoIAm(){
+    public void displayWhoIAm() {
         super.displayWhoIAm();
         System.out.println("I am a nominator");
     }
+
+    @Override
+    public boolean isLimitReached(int currentAmount, int amountToAdd) {
+        if (currentAmount + amountToAdd > awardQuantityLimit) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean isLimitReached(double currentAmount, double amountToAdd) {
+        if (currentAmount + amountToAdd > awardQuantityLimit) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

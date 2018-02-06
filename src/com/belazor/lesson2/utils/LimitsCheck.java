@@ -33,7 +33,8 @@ public class LimitsCheck {
             awardQuantity++;
             System.out.println(String.format("%s gives %s award to %s.", nominator.getName(), award.getValue(), nominee.getName()));
             awardQuantity++;
-        } while (awardQuantity <= nominator.getAwardQuantityLimit());
+        //} while (awardQuantity <= nominator.getAwardQuantityLimit());
+        } while (nominator.isLimitReached(awardQuantity, 1));
 
         displayLimit(NOMINATOR_AWARD_QUANTITY_LIMIT_CONSTANT);
         System.out.println(String.format("Total number of given awards is %s", awardQuantity));
@@ -49,7 +50,8 @@ public class LimitsCheck {
     public void nominateTillNominatorAwardAmountLimit(Nominee nominee, Nominator nominator, Award award) {
         int nominatorAwardAmount = 0;
         int awardAmount = 0;
-        while (nominatorAwardAmount + award.getValue() <= nominator.getAwardAmountLimit()) {
+        //while (nominatorAwardAmount + award.getValue() <= nominator.getAwardamountlimit()) {
+        while (nominator.isLimitReached(awardAmount, award.getValue())) {
             nominatorAwardAmount += award.getValue();
             nominee.receiveAward(award);
             awardAmount++;
@@ -85,7 +87,8 @@ public class LimitsCheck {
     public void nominateTillNomineeAwardAmountLimit(Nominee nominee, Nominator nominator, Award award) {
         int nomineeAwardAmount = 0;
         int awardAmount = 0;
-        while (nomineeAwardAmount + award.getValue() <= nominee.getAwardAmountLimit()) {
+        //while (nomineeAwardAmount + award.getValue() <= nominee.getAwardAmountLimit()) {
+        while (nominee.isLimitReached(nomineeAwardAmount, award.getValue())) {
             nominee.receiveAward(award);
             nomineeAwardAmount += award.getValue();
             awardAmount++;

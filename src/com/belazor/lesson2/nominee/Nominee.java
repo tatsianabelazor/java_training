@@ -6,42 +6,41 @@ import com.belazor.lesson2.utils.NominationHelper;
 
 public class Nominee extends Person {
 
-    private int AwardQuantityLimit;
-    private double AwardAmountLimit;
+    private int awardQuantityLimit;
+    private double awardAmountLimit;
 
     /**
      * @param name Nominee name
      */
     public Nominee(String name) {
-        super (name);
+        super(name);
     }
 
     public int getAwardQuantityLimit() {
-        return AwardQuantityLimit;
+        return awardQuantityLimit;
     }
 
     public double getAwardAmountLimit() {
-        return AwardAmountLimit;
+        return awardAmountLimit;
     }
 
     /**
-     *
      * @param awardQuantityLimit
      */
     public void setAwardQuantityLimit(int awardQuantityLimit) {
-        this.AwardQuantityLimit = awardQuantityLimit;
+        this.awardQuantityLimit = awardQuantityLimit;
     }
 
     /**
-     *
      * @param awardAmountLimit
      */
     public void setAwardAmountLimit(float awardAmountLimit) {
-        this.AwardAmountLimit = awardAmountLimit;
+        this.awardAmountLimit = awardAmountLimit;
     }
 
     /**
      * This method is used to receive award
+     *
      * @param myAward
      * @return
      */
@@ -63,7 +62,22 @@ public class Nominee extends Person {
         super.displayWhoIAm();
         System.out.println("I am a nominee");
     }
+
+    @Override
+    public boolean isLimitReached(int currentAmount, int amountToAdd) {
+        if (currentAmount + amountToAdd > awardQuantityLimit) {
+        }
+        return !isLimitReached(currentAmount, amountToAdd);
+    }
+
+    @Override
+    public boolean isLimitReached(double currentAmount, double amountToAdd) {
+        if (currentAmount + amountToAdd > awardQuantityLimit) {
+        }
+        return !isLimitReached(currentAmount, amountToAdd);
+    }
 }
+
 
 
 
