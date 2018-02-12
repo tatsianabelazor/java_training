@@ -30,4 +30,5 @@ public abstract class Person implements OperationsWithLimit {
         System.out.println("My name is " + name);
     }
 
-    }
+    public abstract void displayRole();
+}

@@ -63,6 +63,11 @@ public class Nominator extends Person {
     @Override
     public void displayWhoIAm() {
         super.displayWhoIAm();
+        System.out.printf("I am %s%n", getName());
+    }
+
+    @Override
+    public void displayRole() {
         System.out.println("I am a nominator");
     }
 

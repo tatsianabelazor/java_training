@@ -1,8 +1,8 @@
 package com.belazor.lesson2.utils;
 
 import com.belazor.lesson2.award.Award;
-import com.belazor.lesson2.nominator.Nominator;
 import com.belazor.lesson2.nominee.Nominee;
+import com.belazor.lesson2.person.Person;
 
 /**
  * Created by Tatsiana_Belazor on 11-Jan-18.
@@ -25,19 +25,18 @@ public class LimitsCheck {
      * @param nominator award nominator
      * @param award     award object
      */
-    public void nominateTillNominatorAwardQuantityLimit(Nominee nominee, Nominator nominator, Award award) {
+    public void nominateTillNominatorAwardQuantityLimit(Person nominee, Person nominator, Award award) throws ValidationException {
 
         int awardQuantity = 0;
         do {
-            nominee.receiveAward(award);
             awardQuantity++;
             System.out.println(String.format("%s gives %s award to %s.", nominator.getName(), award.getValue(), nominee.getName()));
             awardQuantity++;
-        //} while (awardQuantity <= nominator.getAwardQuantityLimit());
         } while (nominator.isLimitReached(awardQuantity, 1));
 
         displayLimit(NOMINATOR_AWARD_QUANTITY_LIMIT_CONSTANT);
         System.out.println(String.format("Total number of given awards is %s", awardQuantity));
+
     }
 
     /**
@@ -47,13 +46,13 @@ public class LimitsCheck {
      * @param nominator award nominator
      * @param award     award object
      */
-    public void nominateTillNominatorAwardAmountLimit(Nominee nominee, Nominator nominator, Award award) {
+    public void nominateTillNominatorAwardAmountLimit(Person nominee, Person nominator, Award award) throws ValidationException {
         int nominatorAwardAmount = 0;
         int awardAmount = 0;
         //while (nominatorAwardAmount + award.getValue() <= nominator.getAwardamountlimit()) {
         while (nominator.isLimitReached(awardAmount, award.getValue())) {
             nominatorAwardAmount += award.getValue();
-            nominee.receiveAward(award);
+            //nominee.receiveAward(award);
             awardAmount++;
             System.out.println(String.format("%s gives %s EUR to %s.", nominator.getName(), award.getValue(), nominee.getName()));
         }
@@ -68,13 +67,19 @@ public class LimitsCheck {
      * @param nominee   award recipient
      * @param nominator award nominator
      * @param award     award object
+     * Приведение типов
      */
-    public void nominateTillNomineeAwardQuantityLimit(Nominee nominee, Nominator nominator, Award award) {
-        for (int i = 1; i <= nominee.getAwardQuantityLimit(); i++) {
-            nominee.receiveAward(award);
+    public void nominateTillNomineeAwardQuantityLimit(Person nominee, Person nominator, Award award) {
+        Nominee nom = (Nominee) nominee;//TODO read instance of
+        for (int i = 1; i <= nom.getAwardQuantityLimit(); i++) {
+            nom.receiveAward(award);
             System.out.println(String.format("%s gives %s award", nominator.getName(), i));
         }
-        displayLimit(NOMINEE_AWARD_QUANTITY_LIMIT_CONSTANT);
+        try {
+            displayLimit(NOMINEE_AWARD_QUANTITY_LIMIT_CONSTANT);
+        } catch (ValidationException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -83,23 +88,21 @@ public class LimitsCheck {
      * @param nominee   award recipient
      * @param nominator award nominator
      * @param award     award object
+     *  Throw exception
      */
-    public void nominateTillNomineeAwardAmountLimit(Nominee nominee, Nominator nominator, Award award) {
+    public void nominateTillNomineeAwardAmountLimit(Person nominee, Person nominator, Award award) throws ValidationException {
         int nomineeAwardAmount = 0;
         int awardAmount = 0;
-        //while (nomineeAwardAmount + award.getValue() <= nominee.getAwardAmountLimit()) {
         while (nominee.isLimitReached(nomineeAwardAmount, award.getValue())) {
-            nominee.receiveAward(award);
             nomineeAwardAmount += award.getValue();
             awardAmount++;
             System.out.println(String.format("Nominator is %s", nominator.getName()));
             System.out.println(String.format("Total number of given awards is %s", awardAmount));
-
         }
         displayLimit(NOMINEE_AWARD_AMOUNT_LIMIT_CONSTANT);
     }
 
-    private void displayLimit(int limitType) {
+    private void displayLimit(int limitType) throws ValidationException {
         switch (limitType) {
             case 1:
                 System.out.println(String.format("NominatorAwardQuantityLimit"));
@@ -115,6 +118,7 @@ public class LimitsCheck {
                 break;
             default:
                 System.out.println("Not supported limit");
+                throw new ValidationException("Not supported limit");
         }
     }
 }
