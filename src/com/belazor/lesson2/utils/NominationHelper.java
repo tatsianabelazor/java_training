@@ -2,9 +2,9 @@ package com.belazor.lesson2.utils;
 
 
 import com.belazor.lesson2.award.Award;
+import com.belazor.lesson2.award.AwardType;
 
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by Tatsiana_Belazor on 15-Jan-18.
@@ -59,5 +59,29 @@ public class NominationHelper {
 
     }
 
+    public static void printAwards(List<Award> awards, AwardType type) {
+        List<Award> selected = new ArrayList<>();
+        for (Award a: awards) {
+            if (type == a.getType()) {
+                selected.add(a);
+            }
+        }
+        if (selected.size() > 0) {
+            for (Award award: selected) {
+                System.out.println(award);
+            }
+        } else {
+            System.out.println("not found");
+        }
+    }
 
+    public static void printAwardsTypes(List<Award> awards) {
+        Set<AwardType> typeSet = new HashSet<>();
+        for (Award a : awards) {
+            typeSet.add(a.getType());
+        }
+        for (AwardType type: typeSet) {
+            System.out.println(type);
+        }
+    }
 }

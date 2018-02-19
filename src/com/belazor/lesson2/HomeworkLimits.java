@@ -1,6 +1,7 @@
 package com.belazor.lesson2;
 
 import com.belazor.lesson2.award.Award;
+import com.belazor.lesson2.award.AwardType;
 import com.belazor.lesson2.nominator.Nominator;
 import com.belazor.lesson2.nominee.Nominee;
 import com.belazor.lesson2.person.Person;
@@ -33,13 +34,13 @@ public class HomeworkLimits {
         limitNominee.displayWhoIAm();
         limitNominee.displayRole();
 
-        Award limitAward = new Award(5);
+        Award limitAward = new Award(5, "USD", 1, AwardType.CASH);
+
+
 
         System.out.println(String.format("Nominator of the award is %s", limitNominator.getName()));
         System.out.println(String.format("Recipient of the award is %s", limitNominee.getName()));
         System.out.println(String.format("The award is %s", limitAward.getValue()));
-
-
 
         awardLimitCheck.nominateTillNomineeAwardQuantityLimit(limitNominee, limitNominator, limitAward);
         try {
@@ -54,8 +55,5 @@ public class HomeworkLimits {
 
         }
     }
-
-    //public void displayPersonInfo() {
-
-    }
+}
 
